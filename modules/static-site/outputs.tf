@@ -4,5 +4,5 @@ output "bucket_name" {
 }
 output "endpoint" { 
     description = "url where the site is served form for dev this is the s3 website endpoint http"
-    value       = "http://${aws_s3_bucket_website_configuration.site.website_endpoint}"
+    value       = var.enable_cdn ? "https://${aws_cloudfront_distribution.cdn[0].domain_name}" : "http://${aws_s3_bucket_website_configuration.site[0].website_endpoint}"
 }

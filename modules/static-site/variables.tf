@@ -12,3 +12,9 @@ variable "enable_cdn" {
     type         = bool
     default      = false          # default false for now since only dev env is being set up NO Prod
 }
+
+variable "cloudfront_price_class" {
+  description = "CloudFront edge coverage vs cost. Only used when enable_cdn = true."
+  type        = string
+  default     = "PriceClass_100"
+}
